@@ -82,7 +82,7 @@ const wedding3Input = {
     title: "Loyed & Aneena | Wedding Invitation",
     description: "A modern wedding invitation for Loyed and Aneena — 22 November 2026, Kerala.",
     openGraphDescription: "Save the date — we're getting married on 22 November 2026.",
-    ogImage: "/images/invitation-aneena.png",
+    ogImage: "/weddings/loyed-aneena-wedding/images/invitation-aneena.png",
     metadataBase: "https://wyvernstack.com",
     themeColor: "#30352B",
   },
