@@ -82,7 +82,11 @@ const wedding3Input = {
     title: "Loyed & Aneena | Wedding Invitation",
     description: "A modern wedding invitation for Loyed and Aneena — 22 November 2026, Kerala.",
     openGraphDescription: "Save the date — we're getting married on 22 November 2026.",
-    ogImage: "/weddings/loyed-aneena-wedding/images/invitation-aneena.png",
+    // WhatsApp struggles with large PNGs (~1.3MB invitation). Use a small share image;
+    // add `public/weddings/loyed-aneena-wedding/images/og-share.jpg` (1200×630, <300KB) when ready.
+    ogImage: "/images/hero-collage.webp",
+    ogImageWidth: 1122,
+    ogImageHeight: 1402,
     metadataBase: "https://wyvernstack.com",
     themeColor: "#30352B",
   },

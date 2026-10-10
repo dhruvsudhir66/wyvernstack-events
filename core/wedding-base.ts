@@ -18,6 +18,8 @@ export type WeddingBase = {
     description: string;
     openGraphDescription: string;
     ogImage: string;
+    ogImageWidth?: number;
+    ogImageHeight?: number;
     metadataBase?: string;
   };
 };

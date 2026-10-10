@@ -7,10 +7,12 @@ export const weddingShareSeoSchema = z.object({
   /** Short line shown on social cards; can differ from the meta description. */
   openGraphDescription: z.string().min(1),
   /**
-   * Path under `public/weddings/<slug>/` (e.g. `/images/invitation.png`).
-   * Use a wide image (~1200×630) when possible for best previews.
+   * Path under `public/weddings/<slug>/` (e.g. `/images/og-share.jpg`).
+   * Prefer a landscape JPEG ~1200×630 under ~300KB for WhatsApp link previews.
    */
   ogImage: z.string().min(1),
+  ogImageWidth: z.number().int().positive().optional(),
+  ogImageHeight: z.number().int().positive().optional(),
   /**
    * Site origin for absolute OG URLs (e.g. `https://wyvernstack.com`).
    * Optional when `NEXT_PUBLIC_SITE_URL` is set on the Worker.
