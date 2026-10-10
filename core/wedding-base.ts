@@ -16,5 +16,8 @@ export type WeddingBase = {
   seo: {
     title: string;
     description: string;
+    openGraphDescription: string;
+    ogImage: string;
+    metadataBase?: string;
   };
 };

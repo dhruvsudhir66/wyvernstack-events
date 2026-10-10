@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import WeddingTemplate from "@/core/template-resolver";
 import { getWedding, listWeddings } from "@/core/registry";
-import { mediaUrl } from "@/lib/assets";
+import { buildWeddingMetadata } from "@/lib/wedding-metadata";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -16,39 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const wedding = getWedding(slug);
   if (!wedding) return {};
-
-  const metadata: Metadata = {
-    title: wedding.seo.title,
-    description: wedding.seo.description,
-  };
-
-  if (wedding.template === "template1") {
-    metadata.metadataBase = new URL(wedding.seo.metadataBase);
-    metadata.openGraph = {
-      title: wedding.seo.title,
-      description: wedding.seo.openGraphDescription,
-      type: "website",
-    };
-  }
-
-  if (wedding.template === "template2") {
-    metadata.icons = { icon: mediaUrl(wedding.slug, wedding.seo.icon) };
-  }
-
-  if (wedding.template === "template3") {
-    metadata.openGraph = {
-      title: wedding.seo.title,
-      description: wedding.seo.description,
-      type: "website",
-    };
-    metadata.twitter = {
-      card: "summary",
-      title: wedding.seo.title,
-      description: wedding.seo.description,
-    };
-  }
-
-  return metadata;
+  return buildWeddingMetadata(wedding);
 }
 
 export async function generateViewport({ params }: PageProps): Promise<Viewport> {

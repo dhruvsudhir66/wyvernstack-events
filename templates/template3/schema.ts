@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { weddingShareSeoSchema } from "../../lib/seo-schema.ts";
 
 const photo = z.object({
   src: z.string().min(1),
@@ -80,9 +81,7 @@ export const template3Schema = z.object({
       continue: z.string().min(1),
     }),
   }),
-  seo: z.object({
-    title: z.string().min(1),
-    description: z.string().min(1),
+  seo: weddingShareSeoSchema.extend({
     themeColor: z.string().min(1),
   }),
   music: z.object({

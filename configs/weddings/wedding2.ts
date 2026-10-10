@@ -12,8 +12,11 @@ const wedding2Input = {
     joined: "Aneena & Loyed",
   },
   seo: {
-    title: "Aneena & Loyed | Wedding",
-    description: "Our Wedding.",
+    title: "Aneena & Loyed | Betrothal",
+    description: "Betrothal celebration for Aneena Vincent and Loyed Varghese — 15 November 2026, Thuruthipuram.",
+    openGraphDescription: "You're invited to our betrothal — Sunday, 15 November 2026.",
+    ogImage: "/images/invitation.png",
+    metadataBase: "https://wyvernstack.com",
     icon: "/images/logo.png",
   },
   event: {
