@@ -1,0 +1,111 @@
+.template-sage {
+  --olive: #30352b;
+  --olive-soft: #59674d;
+  --sage: #a3b18a;
+  --paper: #e9e8dc;
+  --ivory: #f8f4ea;
+  --sand: #c9bea7;
+  --stone: #d8d4c8;
+  --mauve: #a87e8e;
+  --champagne: #c8b58a;
+  --ink: #252a22;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.template-sage {
+  background: var(--olive);
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+.template-sage {
+  margin: 0;
+  min-width: 320px;
+  background: var(--ivory);
+  color: var(--olive);
+  font-family: var(--font-dm), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.template-sage img {
+  display: block;
+  max-width: 100%;
+}
+
+.template-sage button,
+.template-sage a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.template-sage button {
+  font: inherit;
+}
+
+.template-sage a {
+  color: inherit;
+}
+
+.template-sage ::selection {
+  background: var(--olive);
+  color: var(--ivory);
+}
+
+.template-sage :focus-visible {
+  outline: 1px solid var(--olive-soft);
+  outline-offset: 4px;
+}
+
+.template-sage .font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.template-sage .font-script {
+  font-family: var(--font-allura), cursive;
+}
+
+.template-sage .font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.paper-grain {
+  background-image:
+    radial-gradient(rgba(239, 234, 220, 0.09) 0.55px, transparent 0.55px),
+    radial-gradient(rgba(0, 0, 0, 0.06) 0.5px, transparent 0.5px);
+  background-position:
+    0 0,
+    7px 9px;
+  background-size:
+    13px 13px,
+    17px 17px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes invitation-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

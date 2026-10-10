@@ -1,0 +1,114 @@
+.template-pink {
+  --dusty-pink: #c9aaa7;
+  --light-pink: #ead3d0;
+  --off-white: #f7f3ed;
+  --sage: #a9b0a0;
+  --terracotta: #d9a070;
+  --ink: #35312e;
+  --muted: #77716c;
+  --line: rgba(53, 49, 46, 0.13);
+  --surface: #fbf8f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.template-pink {
+  scroll-behavior: auto;
+  background: var(--off-white);
+}
+
+.template-pink {
+  margin: 0;
+  background: var(--off-white);
+  color: var(--ink);
+  font-family: var(--font-dm), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.template-pink ::selection {
+  background: var(--dusty-pink);
+  color: white;
+}
+
+.template-pink .font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.wedding-noise {
+  position: relative;
+}
+
+.wedding-noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+.container-wedding {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section-pad {
+  padding-block: clamp(90px, 12vw, 170px);
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eyebrow-white {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--off-white);
+}
+
+.serif-italic {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-style: italic;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.template-pink input,
+.template-pink textarea,
+.template-pink button {
+  font: inherit;
+}
