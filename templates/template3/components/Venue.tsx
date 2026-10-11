@@ -954,13 +954,13 @@ export default function Venue() {
                   color="#59674D"
                 />
 
-                <ActionItem
+                {/* <ActionItem
                   index="03"
                   label="Invitation"
                   onClick={() => setIsInvitationOpen(true)}
                   icon={<BookIcon />}
                   color="#C8B58A"
-                />
+                /> */}
 
                 <ActionItem
                   index="04"
