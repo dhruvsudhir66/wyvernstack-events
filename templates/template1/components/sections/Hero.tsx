@@ -83,7 +83,7 @@ function Countdown() {
 
       {/* Torn paper */}
 
-      <div className="relative mx-auto w-full">
+      <div className="relative mx-auto w-full overflow-hidden">
         <WeddingImg
           src="/countdown-paper.jpg"
           alt=""
@@ -131,7 +131,7 @@ function Countdown() {
           "
         />
 
-        <div className="relative px-9 py-6 sm:px-11 sm:py-7">
+        <div className="relative px-4 py-5 sm:px-11 sm:py-7">
           {/* Top information */}
 
           <div className="flex items-center justify-between">
@@ -259,7 +259,7 @@ export default function Hero() {
 
   return (
     <section
-      id="hero"
+      id="home"
       className="
         relative
         min-h-[100svh]
@@ -408,7 +408,9 @@ export default function Hero() {
             The Wedding Post · Vol. 01 · No. 01
           </span>
 
-          <span>{wedding.event.locationLine}</span>
+          <span className="max-w-[42%] truncate text-right">
+            {wedding.event.locationLine}
+          </span>
         </div>
 
         {/* -------------------------------------------------------
@@ -591,7 +593,7 @@ export default function Hero() {
           SUBTLE BOTANICAL DETAIL
       ========================================================== */}
 
-      <div className="pointer-events-none absolute -right-24 -top-20 opacity-[0.09]">
+      <div className="pointer-events-none absolute -right-24 -top-20 hidden opacity-[0.09] sm:block">
         <svg
           width="320"
           height="320"
@@ -681,6 +683,7 @@ export default function Hero() {
               mx-auto
               w-full
               max-w-[270px]
+              min-w-0
               sm:max-w-[300px]
             "
           >
@@ -698,7 +701,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <div className="relative">
+            <div className="relative overflow-hidden pb-8">
               {/* Back paper */}
 
               <div
@@ -780,13 +783,14 @@ export default function Hero() {
               <div
                 className="
                   absolute
-                  -right-4
+                  right-0
                   -top-3
                   h-8
                   w-16
                   rotate-[29deg]
                   bg-[#d8c6a9]/40
                   shadow-sm
+                  sm:-right-4
                 "
               />
 
@@ -831,7 +835,7 @@ export default function Hero() {
               delay: 0.12,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="text-center md:text-left"
+            className="min-w-0 text-center md:text-left"
           >
             {/* Newspaper-style section heading */}
 
@@ -884,8 +888,9 @@ export default function Hero() {
               style={{ fontFamily: '"Nesta Mastone", cursive' }}
               className="
                 mt-4
+                break-words
                 font-[var(--font-nesta)]
-                text-[48px]
+                text-[clamp(2rem,10.5vw,3rem)]
                 font-normal
                 leading-[0.82]
                 tracking-[-0.025em]

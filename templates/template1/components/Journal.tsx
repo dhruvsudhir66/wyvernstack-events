@@ -209,7 +209,7 @@ export default function Journal() {
           BOTANICAL DETAIL
       ========================================================== */}
 
-      <div className="pointer-events-none absolute -right-20 top-8 opacity-[0.065]">
+      <div className="pointer-events-none absolute -right-20 top-8 hidden opacity-[0.065] sm:block">
         <svg
           width="240"
           height="290"
@@ -349,9 +349,13 @@ export default function Journal() {
             className="
               relative
               mx-auto
-              w-[94%]
+              w-full
               max-w-[650px]
+              overflow-hidden
+              px-1
+              pb-4
               sm:w-[88%]
+              sm:px-0
             "
           >
             {/* Offset paper layers */}
@@ -493,7 +497,7 @@ export default function Journal() {
             </div>
 
             {/* Tape */}
-            <div className="absolute -right-4 -top-3 z-20 h-7 w-16 rotate-[23deg] bg-[#d8c6a9]/40" />
+            <div className="absolute right-0 -top-3 z-20 h-7 w-16 rotate-[23deg] bg-[#d8c6a9]/40 sm:-right-4" />
 
             <div className="absolute -bottom-2.5 left-[18%] z-20 h-5 w-14 rotate-[-8deg] bg-[#d8c6a9]/25" />
           </motion.div>

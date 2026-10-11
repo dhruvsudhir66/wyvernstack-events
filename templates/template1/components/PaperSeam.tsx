@@ -9,7 +9,7 @@ export default function PaperSeam() {
         z-20
         -my-[18px]
         h-[36px]
-        overflow-visible
+        overflow-hidden
       "
             aria-hidden="true"
         >

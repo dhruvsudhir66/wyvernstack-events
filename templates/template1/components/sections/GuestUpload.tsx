@@ -283,7 +283,7 @@ ${wedding.event.compactDate}`;
                     SUBTLE EDITORIAL BACKGROUND
                 ------------------------------------------------ */}
 
-                <div className="pointer-events-none absolute inset-0">
+                <div className="pointer-events-none absolute inset-0 overflow-hidden">
                     <div
                         className="
                             absolute
@@ -406,7 +406,7 @@ ${wedding.event.compactDate}`;
                             <h2
                                 className="
                                     mt-4
-                                    text-[54px]
+                                    text-[clamp(2.25rem,11vw,3.375rem)]
                                     leading-[0.78]
                                     tracking-[-0.04em]
                                     text-[#4e4035]
@@ -498,7 +498,7 @@ ${wedding.event.compactDate}`;
                                 </span>
                             </div>
 
-                            <div className="grid grid-cols-3 gap-2.5 sm:gap-3.5">
+                            <div className="grid grid-cols-1 gap-3 min-[380px]:grid-cols-3 min-[380px]:gap-2.5 sm:gap-3.5">
                                 {/* VIEW INVITATION */}
                                 <DoodleAction
                                     title="View invitation"

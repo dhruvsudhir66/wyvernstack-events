@@ -236,7 +236,7 @@ export default function RSVP() {
                         <h2
                             className="
                                 mt-4
-                                text-[52px]
+                                text-[clamp(2.125rem,10.5vw,3.25rem)]
                                 leading-[0.74]
                                 tracking-[-0.04em]
                                 text-[#4e4035]

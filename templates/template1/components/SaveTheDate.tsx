@@ -225,7 +225,7 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
           It is a floating piece of old newspaper.
       ========================================================== */}
 
-      <div className="relative z-10 w-full max-w-[500px]">
+      <div className="relative z-10 w-full min-w-0 max-w-[500px]">
         <motion.article
           initial={{
             y: 28,
@@ -261,8 +261,8 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
             group
             relative
             cursor-pointer
-            overflow-visible
-            px-3
+            overflow-hidden
+            px-2
             py-3
             text-[#4e4035]
             transition-transform
@@ -331,7 +331,7 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
             ================================================== */}
 
             <div className="border-y border-[#4e4035]/35 py-2.5">
-              <div className="grid grid-cols-[64px_1fr_64px] items-center gap-2 sm:grid-cols-[78px_1fr_78px]">
+              <div className="grid grid-cols-[minmax(0,52px)_minmax(0,1fr)_minmax(0,52px)] items-center gap-1.5 sm:grid-cols-[78px_1fr_78px] sm:gap-2">
                 {/* Left */}
 
                 <div
@@ -394,16 +394,20 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
                 METADATA
             ================================================== */}
 
-            <div className="flex items-center justify-between border-b border-[#4e4035]/25 py-2 font-serif text-[6px] uppercase tracking-[0.12em] text-[#4e4035]/45 sm:text-[7px]">
-              <span>Vol. 01 · No. 01</span>
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 border-b border-[#4e4035]/25 py-2 font-serif text-[6px] uppercase tracking-[0.1em] text-[#4e4035]/45 sm:text-[7px] sm:tracking-[0.12em]">
+              <span className="min-w-0 truncate text-left">
+                Vol. 01 · No. 01
+              </span>
 
-              <span className="flex items-center gap-2 text-[#596041]/65">
+              <span className="flex shrink-0 items-center gap-1.5 text-[#596041]/65">
                 <Star size={7} fill="currentColor" />
                 Save the Date
                 <Star size={7} fill="currentColor" />
               </span>
 
-              <span>{wedding.event.locationLine}</span>
+              <span className="min-w-0 truncate text-right">
+                {wedding.event.locationLine}
+              </span>
             </div>
 
             {/* =================================================
@@ -415,7 +419,7 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
                 <span className="h-px w-8 bg-[#4e4035]/20 sm:w-11" />
 
                 <p className="font-serif text-[7px] uppercase tracking-[0.32em] text-[#596041]/65">
-                  17 · 04 · 2027
+                  {wedding.event.compactDate}
                 </p>
 
                 <span className="h-px w-8 bg-[#4e4035]/20 sm:w-11" />
@@ -482,7 +486,7 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
                 ARCHIVAL PHOTO CLIPPING
             ================================================== */}
 
-            <div className="relative mx-auto w-[94%]">
+            <div className="relative mx-auto w-full max-w-full overflow-hidden px-1 sm:w-[94%] sm:px-0">
               {/* Crooked paper underneath */}
 
               <div
@@ -588,13 +592,14 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
                 className="
                   pointer-events-none
                   absolute
-                  -right-4
+                  right-0
                   -top-3
                   z-20
                   h-7
                   w-16
                   rotate-[27deg]
                   bg-[#d8c6a9]/35
+                  sm:-right-4
                 "
               />
 
@@ -626,7 +631,8 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
                   fontFamily: '"Nesta Mastone", cursive',
                 }}
                 className="
-                  text-[39px]
+                  break-words
+                  text-[clamp(1.75rem,8.5vw,2.45rem)]
                   leading-none
                   tracking-[-0.02em]
                   text-[#4e4035]/85
@@ -672,15 +678,21 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
             ================================================== */}
 
             <div className="border-t border-[#4e4035]/25 pt-2.5">
-              <div className="flex items-center justify-between font-serif text-[6px] uppercase tracking-[0.16em] text-[#4e4035]/40 sm:text-[7px]">
-                <span>{wedding.event.displayDate}</span>
-
-                <span className="flex items-center gap-1.5 text-[#596041]/65">
-                  <CalendarDays size={8} />
-                  {wedding.event.location}
+              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-1 font-serif text-[6px] uppercase tracking-[0.12em] text-[#4e4035]/40 sm:text-[7px] sm:tracking-[0.16em]">
+                <span className="min-w-0 truncate text-left">
+                  {wedding.event.displayDate}
                 </span>
 
-                <span>Wedding Edition</span>
+                <span className="flex shrink-0 items-center gap-1 text-[#596041]/65">
+                  <CalendarDays size={8} />
+                  <span className="max-w-[9rem] truncate sm:max-w-none">
+                    {wedding.event.location}
+                  </span>
+                </span>
+
+                <span className="min-w-0 truncate text-right">
+                  Wedding Edition
+                </span>
               </div>
             </div>
 

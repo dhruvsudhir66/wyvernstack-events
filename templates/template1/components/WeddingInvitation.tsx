@@ -209,6 +209,7 @@ export default function WeddingInvitation() {
         ) : (
           <motion.div
             key="invitation"
+            className="w-full max-w-full overflow-x-clip"
             initial={{
               opacity: 0,
               y: 16,
@@ -616,12 +617,13 @@ export default function WeddingInvitation() {
                     }}
                     className="
                       absolute
-                      left-1/2
+                      left-3
+                      right-3
                       top-[53px]
                       z-50
-                      w-[calc(100vw-28px)]
+                      mx-auto
+                      w-auto
                       max-w-[350px]
-                      -translate-x-1/2
                     "
                   >
                     {/* shadow */}

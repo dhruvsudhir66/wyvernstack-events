@@ -177,7 +177,7 @@ function PersonSpread({
           EDITORIAL ATMOSPHERE
       ======================================================== */}
 
-            <div className="pointer-events-none absolute inset-0">
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 {/* Giant background word */}
 
                 <div
@@ -257,7 +257,7 @@ function PersonSpread({
       ======================================================== */}
 
             <div
-                className={`pointer-events-none absolute ${isBride ? "-right-16 top-[13%]" : "-left-16 bottom-[10%]"
+                className={`pointer-events-none absolute hidden md:block ${isBride ? "-right-16 top-[13%]" : "-left-16 bottom-[10%]"
                     } opacity-[0.09]`}
             >
                 <Botanical flip={!isBride} />
@@ -268,7 +268,7 @@ function PersonSpread({
       ======================================================== */}
 
             <div className="relative z-10 mx-auto mb-12 max-w-6xl sm:mb-16">
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 flex-wrap items-center gap-2 gap-y-1 sm:gap-3">
                     <span className="font-serif text-[6px] uppercase tracking-[0.3em] text-[#4e4035]/30">
                         Volume 01
                     </span>
@@ -330,6 +330,11 @@ function PersonSpread({
               mx-auto
               w-full
               max-w-[300px]
+              min-w-0
+              overflow-hidden
+              px-1
+              pb-8
+              sm:px-0
               ${isBride ? "lg:order-1" : "lg:order-2"}
             `}
                     >
@@ -451,8 +456,8 @@ function PersonSpread({
                 w-16
                 bg-[#d8c6a9]/45
                 ${isBride
-                                    ? "right-[-13px] rotate-[25deg]"
-                                    : "left-[-13px] rotate-[-25deg]"
+                                    ? "right-0 rotate-[25deg] sm:right-[-13px]"
+                                    : "left-0 rotate-[-25deg] sm:left-[-13px]"
                                 }
               `}
                         />
@@ -499,6 +504,7 @@ function PersonSpread({
                             ease: [0.22, 1, 0.36, 1],
                         }}
                         className={`
+              min-w-0
               ${isBride ? "lg:order-2" : "lg:order-1"}
             `}
                     >
@@ -530,7 +536,8 @@ function PersonSpread({
                             }}
                             className="
                 mt-2
-                text-[62px]
+                break-words
+                text-[clamp(2.5rem,12vw,3.875rem)]
                 leading-[0.82]
                 tracking-[-0.025em]
                 text-[#4e4035]

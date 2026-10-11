@@ -75,7 +75,7 @@ export default function Venue() {
 
                 {/* TITLE */}
                 <h2
-                    className="mt-3 text-[46px] leading-[0.9] text-[#4e4035] sm:text-[58px]"
+                    className="mt-3 text-[clamp(2rem,10vw,2.875rem)] leading-[0.9] text-[#4e4035] sm:text-[58px]"
                     style={{ fontFamily: '"Nesta Mastone", cursive' }}
                 >
                     Where &amp; when
@@ -140,7 +140,7 @@ export default function Venue() {
                 </p>
 
                 {/* PAGE NUMBER */}
-                <div className="mt-9 flex items-center gap-2.5">
+                <div className="mt-9 flex min-w-0 flex-wrap items-center justify-center gap-2 gap-y-1 sm:gap-2.5">
                     <div className="flex items-center gap-1.5">
                         <span className="font-serif text-[5px] uppercase tracking-[0.2em] text-[#4e4035]/25">
                             Page

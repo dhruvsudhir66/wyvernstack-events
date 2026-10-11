@@ -33,10 +33,23 @@
 
 .template-paper {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
   background: var(--cream);
   color: var(--ink);
   font-family: var(--font-dm), "DM Sans", sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+.template-paper main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Mobile-first: keep flex/grid children from forcing horizontal scroll */
+.template-paper .min-w-0-safe {
+  min-width: 0;
 }
 
 .template-paper button,

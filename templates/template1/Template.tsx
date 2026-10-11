@@ -28,7 +28,7 @@ export default function Template1({ wedding }: { wedding: Template1Config }) {
     <Template1Provider value={wedding}>
       <WeddingAssetScope slug={wedding.slug}>
         <div
-          className="template-paper min-h-screen"
+          className="template-paper min-h-screen w-full max-w-full overflow-x-clip"
           style={{
             ["--paper-texture" as string]: `url("${paper}")`,
             ["--countdown-paper" as string]: `url("${countdown}")`,

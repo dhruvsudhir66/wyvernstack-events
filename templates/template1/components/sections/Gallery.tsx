@@ -81,8 +81,10 @@ function PhotoStrip({
             }}
             className="
                 relative
-                w-[min(36vw,230px)]
+                w-full
+                max-w-[200px]
                 sm:w-[min(27vw,260px)]
+                sm:max-w-none
             "
         >
             {/* Soft shadow */}
@@ -461,7 +463,7 @@ export default function Gallery() {
                     "
                 />
 
-                <div className="flex items-start justify-center gap-4 sm:gap-7 md:gap-12">
+                <div className="flex flex-col items-center gap-10 px-1 sm:flex-row sm:items-start sm:justify-center sm:gap-7 md:gap-12">
                     <PhotoStrip
                         photos={gallery.left}
                         rotation={-3.2}
