@@ -3,7 +3,7 @@ import { template2Schema, type Template2Config } from "../../templates/template2
 
 const wedding2Input = {
   template: "template2",
-  slug: "aneena-bethrothal",
+  slug: "aneena-betrothal",
   couple: {
     bride: "Aneena",
     groom: "Loyed",
@@ -64,7 +64,7 @@ const wedding2Input = {
     },
   ],
   story: {
-    captionLabel: "Bethrothal",
+    captionLabel: "Betrothal",
     captionDate: "15 November 2026",
     paragraphs: [
       "Somewhere between then and now. It all started with a glance at church — a little eye contact that neither of us knew would become the beginning of our story. Then came an Instagram follow, a few messages, and conversations that slowly turned a familiar face into someone we couldn’t imagine not knowing. Then came the miles. With him at sea, we learned to love through long calls, quiet waits, missed moments, and precious reunions.",
@@ -84,7 +84,7 @@ const wedding2Input = {
     events: [
       {
         number: "01",
-        type: "Bethrothal",
+        type: "Betrothal",
         time: "4:00 PM",
         place: "St Francis Assisi Church, Thuruthipuram",
         description:
@@ -110,7 +110,7 @@ const wedding2Input = {
     location: "Kerala, India",
     description: "Save the date for Aneena & Loyed's wedding celebration.",
   },
-  marquee: ["Aneena & Loyed", "15.11.2026", "Bethrothal", "Forever starts here"],
+  marquee: ["Aneena & Loyed", "15.11.2026", "Betrothal", "Forever starts here"],
   footer: {
     eyebrow: "Until forever",
     creditUrl: "https://wyvernstack.com",
