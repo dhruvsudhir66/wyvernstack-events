@@ -521,7 +521,7 @@ export default function SaveTheDate({ onOpen }: { onOpen: () => void }) {
               >
                 <div className="relative overflow-hidden bg-[#596041]">
                   <WeddingImg
-                    src="/save-date.webp"
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
                     alt="Wedding couple"
                     className="
                       aspect-[4/3]

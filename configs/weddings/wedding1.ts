@@ -1,105 +1,153 @@
+
 import { template1Defaults } from "../../templates/template1/defaults.ts";
-import { template1Schema, type Template1Config } from "../../templates/template1/schema.ts";
+import {
+  template1Schema,
+  type Template1Config,
+} from "../../templates/template1/schema.ts";
 
 const wedding1Input = {
   template: "template1",
-  slug: "wedding1",
+  slug: "paper-theme-demo",
+
   couple: {
-    bride: "Aneena",
-    groom: "Loyed",
-    monogram: "L & A",
+    bride: "Isabella",
+    groom: "Nathan",
+    monogram: "I & N",
   },
+
   seo: {
-    title: "Aneena & Loyed | Wedding Invitation",
-    description: "A quiet, modern wedding invitation in sage, olive, cream and warm earth tones.",
-    openGraphDescription: "Join us as we begin our next chapter together — 22 November 2026, Kerala.",
-    ogImage: "/images/gallery/couple-gallery-1.webp",
+    title: "Isabella & Nathan | Wedding Invitation",
+    description:
+      "A timeless wedding invitation in sage, olive, cream and warm earth tones.",
+    openGraphDescription:
+      "Join Isabella and Nathan as they begin their next chapter together on 14 February 2027, in Kochi.",
+    ogImage:
+      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85",
     metadataBase: "https://wyvernstack.com",
     themeColor: "#2f3524",
-    manifestName: "Aneena & Abin — Wedding",
-    manifestShortName: "A & A",
+    manifestName: "Isabella & Nathan — Wedding",
+    manifestShortName: "I & N",
   },
+
   event: {
-    displayDate: "22 November 2026",
-    compactDate: "22 · 11 · 2026",
-    countdownIso: "2026-11-22T00:00:00+05:30",
+    displayDate: "14 February 2027",
+    compactDate: "14 · 02 · 2027",
+    countdownIso: "2027-02-14T15:00:00+05:30",
     timezone: "Asia/Kolkata",
-    location: "Kerala",
-    locationLine: "Kerala · 2026",
-    nav: { day: "22", month: "11", year: "26" },
+    location: "Kochi, Kerala",
+    locationLine: "Kochi · 2027",
+    nav: {
+      day: "14",
+      month: "02",
+      year: "27",
+    },
   },
+
   footer: {
-    date: "17 April 2027",
-    place: "Ernakulam · Kerala",
-    instagramUrl: "https://instagram.com/aneenaandloyed",
-    instagramHandle: "@aneenaandloyed",
+    date: "14 February 2027",
+    place: "Kochi · Kerala",
+    instagramUrl: "https://instagram.com/",
+    instagramHandle: "@yourcouplename",
   },
+
   venue: {
-    date: "22 November 2026",
-    time: "4:00 PM",
-    name: "Venue Name",
-    address: "Full venue address, Ernakulam, Kerala",
-    mapsUrl: "YOUR_GOOGLE_MAPS_LINK",
+    date: "14 February 2027",
+    time: "3:00 PM",
+    name: "The Garden Estate",
+    address: "Demo Venue, Fort Kochi, Kerala, India",
+    mapsUrl: "https://maps.google.com/",
   },
+
   music: {
     src: "/music/Until_I_Found_You.mpeg",
     enabled: template1Defaults.music.enabled,
   },
+
   assets: {
-    logo: "/images/logo.png",
+    logo:
+      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=85",
     paperTexture: "/crumpled-paper.jpg",
     countdownPaper: "/countdown-paper.jpg",
-    hero: "/hero-cropped.jpeg",
-    saveDate: "/save-date.webp",
+    hero:
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=90",
+    saveDate:
+      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85",
   },
+
   profiles: {
     bride: {
-      name: "Aneena",
+      name: "Isabella",
       role: "The Bride",
-      image: "/images/aneena.jpeg",
+      image:
+        "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85",
       page: "02",
       eyebrow: "Meet the bride",
       description:
-        "A short introduction about Aneena goes here. Tell the story in your own voice: the little things she loves, the people who know her best, and the details that make her unmistakably herself.",
-      note: "She brings a little warmth into ordinary days.",
+        "A lover of quiet mornings, handwritten notes and flowers gathered from the garden. Isabella finds happiness in the little things and believes the most beautiful memories are the ones shared with the people she loves.",
+      note: "She finds magic in the little things.",
       details: [
-        { label: "Known for", value: "Her own little things" },
-        { label: "Favourite", value: "Add something personal" },
-        { label: "Always", value: "Add a meaningful detail" },
+        { label: "Known for", value: "Her thoughtful heart" },
+        { label: "Favourite", value: "Flowers and slow mornings" },
+        { label: "Always", value: "Finding joy in the details" },
       ],
     },
+
     groom: {
-      name: "Loyed",
+      name: "Nathan",
       role: "The Groom",
-      image: "/images/loyed.jpeg",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85",
       page: "03",
       eyebrow: "Meet the groom",
       description:
-        "A short introduction about Loyed goes here. Add the little details that feel like him: what he enjoys, what his family would say about him, and the qualities that make his story his own.",
-      note: "He makes the familiar feel like something worth remembering.",
+        "A thoughtful soul with a love for good music, spontaneous road trips and long conversations. Nathan believes life is best enjoyed with a little adventure, a lot of laughter and the right person by his side.",
+      note: "He makes every ordinary moment count.",
       details: [
-        { label: "Known for", value: "His own little things" },
-        { label: "Favourite", value: "Add something personal" },
-        { label: "Always", value: "Add a meaningful detail" },
+        { label: "Known for", value: "His easygoing nature" },
+        { label: "Favourite", value: "Music and road trips" },
+        { label: "Always", value: "Making people smile" },
       ],
     },
   },
+
   gallery: {
     left: [
-      { src: "/images/gallery/couple-gallery-1.webp", alt: "Aneena and Loyed" },
-      { src: "/images/gallery/couple-gallery-2.webp", alt: "Aneena and Loyed together" },
-      { src: "/images/gallery/couple-gallery-3.webp", alt: "Aneena and Loyed" },
+      {
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
+        alt: "An elegant wedding celebration",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85",
+        alt: "A romantic wedding moment",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85",
+        alt: "A couple celebrating their love",
+      },
     ],
+
     right: [
-      { src: "/images/gallery/couple-gallery-4.webp", alt: "Aneena and Loyed" },
-      { src: "/images/gallery/couple-gallery-5.webp", alt: "Aneena and Loyed together" },
-      { src: "/images/gallery/couple-gallery-6.webp", alt: "Aneena and Loyed" },
+      {
+        src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85",
+        alt: "An intimate wedding reception",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
+        alt: "Wedding flowers and celebration details",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85",
+        alt: "A romantic wedding setting",
+      },
     ],
-    captionDate: "22 · 11 · 2026",
-    volumeDate: "22 November 2026",
-    sideLabel: "22 · 11 · 2026 · PRIVATE COLLECTION",
+
+    captionDate: "14 · 02 · 2027",
+    volumeDate: "14 February 2027",
+    sideLabel: "14 · 02 · 2027 · OUR STORY",
   },
-  mobileNote: "take your time.",
+
+  mobileNote: "a little moment, forever.",
+
   integrations: template1Defaults.integrations,
 } satisfies Template1Config;
 
