@@ -45,6 +45,7 @@ function VolumeIcon({ muted }: { muted: boolean }) {
 export default function WeddingAudio() {
   const wedding = useTemplate3();
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const resumeOnVisibleRef = useRef(false);
 
   const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -113,6 +114,32 @@ export default function WeddingAudio() {
         "wedding:open-invitation",
         handleOpenInvitation,
       );
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      const audio = audioRef.current;
+      if (!audio) return;
+
+      if (document.hidden) {
+        resumeOnVisibleRef.current = !audio.paused && !audio.muted;
+        audio.pause();
+        return;
+      }
+
+      if (resumeOnVisibleRef.current && !audio.muted) {
+        resumeOnVisibleRef.current = false;
+        void audio.play().catch(() => {});
+      } else {
+        resumeOnVisibleRef.current = false;
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 

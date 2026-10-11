@@ -937,7 +937,7 @@ export default function Venue() {
               </div>
 
               {/* Actions */}
-              <div className="grid grid-cols-4">
+              <div className="grid grid-cols-auto grid-flow-col">
                 <ActionItem
                   index="01"
                   label="RSVP"
