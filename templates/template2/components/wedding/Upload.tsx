@@ -1045,7 +1045,7 @@ export default function Upload() {
 
                 <div className="max-h-[90vh] overflow-auto">
                   <WeddingImg
-                    src="/images/invitation.png"
+                    src="/images/invitation.webp"
                     alt="Wedding invitation"
                     className="
                       mx-auto

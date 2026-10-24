@@ -40,7 +40,7 @@ const wedding2Input = {
     logo: "/images/logo.png",
     hero: "/images/hero-blurred.webp",
     saveDate: "/images/save-date.webp",
-    invitation: "/images/invitation.png",
+    invitation: "/images/invitation.webp",
     church: "/images/church-thuruthipuram.webp",
     storyPrimary: "/images/couple.webp",
     storySecondary: "/images/couple-2.webp",
