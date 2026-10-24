@@ -100,53 +100,26 @@ function DownloadIcon() {
    DATE HELPERS
 ========================================================= */
 
-function googleCalendarDates(event: CalendarEvent) {
-  const start = new Date(
-    Date.UTC(
-      event.start.year,
-      event.start.month - 1,
-      event.start.day,
-      event.start.hour,
-      event.start.minute,
-    ),
-  );
+const CALENDAR_TIMEZONE = "Asia/Kolkata";
 
-  const end = new Date(
-    Date.UTC(
-      event.end.year,
-      event.end.month - 1,
-      event.end.day,
-      event.end.hour,
-      event.end.minute,
-    ),
-  );
-
-  const format = (date: Date) =>
-    date
-      .toISOString()
-      .replace(/[-:]/g, "")
-      .replace(/\.\d{3}Z$/, "Z");
-
-  return `${format(start)}/${format(end)}`;
+function pad2(value: number) {
+  return String(value).padStart(2, "0");
 }
 
-function outlookDateTime({
-  year,
-  month,
-  day,
-  hour,
-  minute,
-}: {
-  year: number;
-  month: number;
-  day: number;
-  hour: number;
-  minute: number;
-}) {
-  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(
-    2,
-    "0",
-  )}T${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}:00`;
+/** Local wall-clock times for Google `dates` + `ctz` (works on mobile apps). */
+function googleCalendarDates(event: CalendarEvent) {
+  const formatPart = (part: CalendarEvent["start"]) =>
+    `${part.year}${pad2(part.month)}${pad2(part.day)}T${pad2(part.hour)}${pad2(part.minute)}00`;
+
+  return `${formatPart(event.start)}/${formatPart(event.end)}`;
+}
+
+function outlookDateTime(part: CalendarEvent["start"]) {
+  const offsetMinutes = 5 * 60 + 30;
+  const utcMs =
+    Date.UTC(part.year, part.month - 1, part.day, part.hour, part.minute) -
+    offsetMinutes * 60 * 1000;
+  return new Date(utcMs).toISOString();
 }
 
 /* =========================================================
@@ -160,11 +133,11 @@ function getGoogleCalendarUrl(event: CalendarEvent) {
     dates: googleCalendarDates(event),
     details: event.description,
     location: event.location,
-    stz: "Asia/Kolkata",
-    etz: "Asia/Kolkata",
+    ctz: CALENDAR_TIMEZONE,
   });
 
-  return `https://calendar.google.com/calendar/r/eventedit?${params.toString()}`;
+  // `/render` passes query params to mobile Google Calendar; `/r/eventedit` often opens an empty event.
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
 function getOutlookCalendarUrl(event: CalendarEvent) {
@@ -186,22 +159,29 @@ function getOutlookCalendarUrl(event: CalendarEvent) {
    ICAL DOWNLOAD
 ========================================================= */
 
-function downloadICS(event: CalendarEvent) {
-  const pad = (value: number) => String(value).padStart(2, "0");
+function isAppleMobile() {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent;
+  return (
+    /iPhone|iPad|iPod/i.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  );
+}
 
+function downloadICS(event: CalendarEvent) {
   const start =
     `${event.start.year}` +
-    `${pad(event.start.month)}` +
-    `${pad(event.start.day)}` +
-    `T${pad(event.start.hour)}` +
-    `${pad(event.start.minute)}00`;
+    `${pad2(event.start.month)}` +
+    `${pad2(event.start.day)}` +
+    `T${pad2(event.start.hour)}` +
+    `${pad2(event.start.minute)}00`;
 
   const end =
     `${event.end.year}` +
-    `${pad(event.end.month)}` +
-    `${pad(event.end.day)}` +
-    `T${pad(event.end.hour)}` +
-    `${pad(event.end.minute)}00`;
+    `${pad2(event.end.month)}` +
+    `${pad2(event.end.day)}` +
+    `T${pad2(event.end.hour)}` +
+    `${pad2(event.end.minute)}00`;
 
   const escapeICS = (value: string) =>
     value
@@ -222,8 +202,8 @@ function downloadICS(event: CalendarEvent) {
       .toISOString()
       .replace(/[-:]/g, "")
       .replace(/\.\d{3}Z$/, "Z")}`,
-    `DTSTART;TZID=Asia/Kolkata:${start}`,
-    `DTEND;TZID=Asia/Kolkata:${end}`,
+    `DTSTART;TZID=${CALENDAR_TIMEZONE}:${start}`,
+    `DTEND;TZID=${CALENDAR_TIMEZONE}:${end}`,
     `SUMMARY:${escapeICS(event.title)}`,
     `DESCRIPTION:${escapeICS(event.description)}`,
     `LOCATION:${escapeICS(event.location)}`,
@@ -239,13 +219,30 @@ function downloadICS(event: CalendarEvent) {
   const link = document.createElement("a");
 
   link.href = url;
-  link.download = event.fileName;
 
+  if (isAppleMobile()) {
+    // Safari opens the import sheet when navigating to the ICS blob URL.
+    window.location.assign(url);
+    window.setTimeout(() => URL.revokeObjectURL(url), 5_000);
+    return;
+  }
+
+  link.download = event.fileName;
   document.body.appendChild(link);
   link.click();
   link.remove();
 
-  URL.revokeObjectURL(url);
+  window.setTimeout(() => URL.revokeObjectURL(url), 2_000);
+}
+
+function openCalendarUrl(url: string) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 }
 
 /* =========================================================
@@ -386,8 +383,7 @@ export default function CalendarModal({ open, onClose }: CalendarModalProps) {
   }
 
   const openExternalCalendar = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-
+    openCalendarUrl(url);
     onClose();
   };
 
@@ -541,7 +537,11 @@ export default function CalendarModal({ open, onClose }: CalendarModalProps) {
           <CalendarOption
             icon={<AppleIcon />}
             title="Apple Calendar"
-            description="Download calendar file"
+            description={
+              isAppleMobile()
+                ? "Open file to add event"
+                : "Download calendar file"
+            }
             onClick={() => {
               downloadICS(calendarEvent);
               onClose();
