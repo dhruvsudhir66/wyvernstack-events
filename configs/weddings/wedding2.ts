@@ -104,7 +104,7 @@ const wedding2Input = {
     colors: ["#C88C8D", "#B87880", "#edd9bc", "#9B6975", "#53015286"],
   },
   calendar: {
-    title: "Aneena & Loyed — Wedding Day",
+    title: "Aneena & Loyed — Betrothal",
     start: "2026-11-15T00:00:00+05:30",
     end: "2026-11-16T00:00:00+05:30",
     location: "Kerala, India",
