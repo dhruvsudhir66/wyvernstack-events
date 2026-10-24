@@ -113,7 +113,7 @@ const wedding2Input = {
   marquee: ["Aneena & Loyed", "15.11.2026", "Betrothal", "Forever starts here"],
   footer: {
     eyebrow: "Until forever",
-    creditUrl: "https://wyvernstack.com",
+    creditUrl: "https://wyvernstack.com/events",
     creditLabel: "wyvernstack.com",
     copyright: "© 2026 Wyvernstack",
   },

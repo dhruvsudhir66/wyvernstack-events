@@ -156,7 +156,7 @@ const wedding3Input = {
     instagramUrl: "https://instagram.com/yourcouplehandle",
     instagramHandle: "@yourcouplehandle",
     instagramAria: "Loyed and Aneena on Instagram",
-    studioUrl: "https://wyvernstack.com",
+    studioUrl: "https://wyvernstack.com/events",
     studioInstagramUrl: "https://www.instagram.com/wyvernstack?vrfl=Z2RyejQ1Mjh1eTV1",
     copyright: "© 2026 · Loyed & Aneena",
     closing: "With love, always.",
