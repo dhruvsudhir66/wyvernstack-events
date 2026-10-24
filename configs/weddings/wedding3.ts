@@ -146,10 +146,10 @@ const wedding3Input = {
     fileName: "Loyed-and-Aneena-Wedding.ics",
     uidHost: "loyedandaneena",
     prodId: "-//Loyed & Aneena//Wedding Invitation//EN",
-    durationHours: 2,
-    start: { year: 2026, month: 11, day: 22, hour: 18, minute: 0 },
+    durationHours: 5,
+    start: { year: 2026, month: 11, day: 22, hour: 15, minute: 0 },
     end: { year: 2026, month: 11, day: 22, hour: 20, minute: 0 },
-    display: "22 November 2026 · 6:00 PM",
+    display: "22 November 2026 · 3:00 PM – 8:00 PM",
   },
   footer: {
     message: "Thank you for being part of our story.",
