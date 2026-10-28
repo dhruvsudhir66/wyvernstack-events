@@ -42,7 +42,7 @@ const wedding2Input = {
     saveDate: "/images/save-date.webp",
     invitation: "/images/invitation.webp",
     church: "/images/church-thuruthipuram.webp",
-    storyPrimary: "/images/couple.webp",
+    storyPrimary: "/images/couple-2.webp",
     storySecondary: "/images/couple-2.webp",
   },
   people: [
